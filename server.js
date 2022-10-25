@@ -21,6 +21,10 @@ const isValidDate = dateString => {
   return regEx.test(dateString);
 }
 
+app.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
+
 app.get('/api/v1/travelers', (req, res) => {
   const { travelers } = app.locals;
   res.status(200).json({ travelers });
@@ -201,3 +205,5 @@ app.delete('/api/v1/trips/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`${app.locals.title} is now running on http://localhost:${port} !`)
 });
+
+module.exports = app
